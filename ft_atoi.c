@@ -5,35 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 10:18:47 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/06/06 10:40:01 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/07/03 12:23:34 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/07/03 12:59:35 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_atoi(const char *str)
+int		ft_atoi(const char *nptr)
 {
 	int i;
-	int ans;
 	int sign;
+	int result;
 
 	i = 0;
-	ans = 0;
+	result = 0;
 	sign = 1;
-	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == 32)
+	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
 		i++;
-	if (str[i] == '-')
+	if (nptr[i] == '+')
+		i++;
+	else if (nptr[i] == '-')
 	{
 		sign = -1;
 		i++;
 	}
-	else if(str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
+	while (nptr[i] >= '0' && nptr[i] <= '9' && nptr[i] != '\0')
 	{
-		ans = ans * 10 + (str[i] - '0');
+		result = result * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return (sign * ans);
+	return (sign * result);
 }

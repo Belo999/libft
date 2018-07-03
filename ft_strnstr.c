@@ -5,29 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 11:49:25 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/06/06 12:11:13 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/07/03 13:30:42 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/07/03 13:56:28 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "stdlib.h"
 
-char 	*ft_strnstr(const char *haystack, const char *needle, size_t n)
+char	*ft_strnstr(const char *search, const char *input, size_t n)
 {
 	size_t i;
 	size_t j;
 
-	if (*needle == '\0')
-		return ((char*)haystack);
+	if(*input == '\0')
+		return ((char*)search);
 	i = 0;
-	while (haystack[i] && i < n)
+	while (i < n && search[i] != '\0')
 	{
 		j = 0;
-		while (haystack[i + j] == needle[j] && (i + j) < n)
+		while (search[i + j] == input[j] && (i + j) < n)
 		{
 			j++;
-			if (needle[j] == '\0')
-				return ((char*)haystack + i);
+			if (input[j] == '\0')
+				return ((char *)search + i);
 		}
 		i++;
 	}

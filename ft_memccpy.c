@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/03 13:21:17 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/07/03 13:54:07 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/07/03 15:51:35 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/07/03 16:00:24 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
-
-char	*ft_strstr(const char *search, const char *input)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
 	size_t i;
-	size_t j;
+	unsigned char *destination;
+	unsigned char *source;
 
-	if (*input == '\0')
-		return ((char *)search);
 	i = 0;
-	while (search[i])
+	destination = (unsigned char *)dest;
+	source = (unsigned char *)src;
+	while (--n)
 	{
-		j = 0;
-		while (search[i + j] == input[j])
-		{
-			j++;
-			if (input[j] == '\0')
-				return ((char *)search + i);
-		}
+		destination[i] = source[i];
 		i++;
+		if (destination[i - 1] == (unsigned char)c)
+			return (dest + i);
 	}
 	return (NULL);
 }

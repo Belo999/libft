@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 13:31:32 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/06/06 13:37:57 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/07/03 16:03:09 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/07/03 16:22:58 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "stdlib.h"
 
-char *ft_strchr(const char *str, int c)
+void	*ft_memalloc(size_t size)
 {
-	size_t i;
+	void *ret;
 
-	i = 0;
-	while (str[i] != '\0')
+	ret = (void *)malloc(size);
+	if (size)
 	{
-		if (str[i] == c)
+		if (!ret)
+			return (NULL);
+		while (size)
 		{
-			return ((char *)&str[i])
+			ret[--size] = '0';
 		}
-		i++;
 	}
-	if (str[i] == (char)c)
-		return ((char *)&str[i]);
-	return (NULL);
+	return (ret);
 }

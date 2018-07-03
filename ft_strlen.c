@@ -5,22 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 09:46:04 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/06/06 09:48:18 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/07/03 14:03:54 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/07/03 14:20:25 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "stdlib.h"
 
-int		ft_strlen(char *str)
+size_t		ft_strlen(const char *str)
 {
-	int i;
-
+	size_t i;
+	
 	i = 0;
 	while (str[i] != '\0')
 	{
 		i++;
 	}
-
 	return (i);
 }

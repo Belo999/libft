@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/03 13:21:17 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/07/03 13:54:07 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/07/03 13:56:36 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/07/03 14:18:37 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stdlib.h"
 
-char	*ft_strstr(const char *search, const char *input)
-{
-	size_t i;
-	size_t j;
+size_t	ft_strlen(const char *src);
 
-	if (*input == '\0')
-		return ((char *)search);
+char	*ft_strcat(char *dest, const char *src)
+{
+	size_t dest_len;
+	size_t i;
+
+	dest_len = ft_strlen(dest);
 	i = 0;
-	while (search[i])
+	while (src[i])
 	{
-		j = 0;
-		while (search[i + j] == input[j])
-		{
-			j++;
-			if (input[j] == '\0')
-				return ((char *)search + i);
-		}
+		dest[dest_len + i] = src[i];
 		i++;
 	}
-	return (NULL);
+	dest[dest_len + i] = '\0';
+	return (dest);
 }

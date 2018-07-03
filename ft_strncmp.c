@@ -5,22 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmolokan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/06 10:40:29 by tmolokan          #+#    #+#             */
-/*   Updated: 2018/06/06 10:52:27 by tmolokan         ###   ########.fr       */
+/*   Created: 2018/07/03 13:10:11 by tmolokan          #+#    #+#             */
+/*   Updated: 2018/07/03 13:21:09 by tmolokan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "string.h"
+#include "stdlib.h"
 
-int		ft_strncmp(const char *str1, const char *str2, size_t n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	int i;
 
 	i = 0;
-	while (str1[i] && str2[i] && str1[i] == str2[i] && i < n)
+	while (i < n && s1[i] && s2[i] && s1[i] == s2[i])
 		i++;
 	if (i < n)
-		return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+		return ((int)s1[i] - (int)s2[i]);
 	return (0);
 }
